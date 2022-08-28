@@ -1,6 +1,7 @@
 import 'package:alura_challenge_mobile/app/global_widgets/button.dart';
 import 'package:alura_challenge_mobile/app/global_widgets/input.dart';
 import 'package:alura_challenge_mobile/app/modules/login/controllers/login_controller.dart';
+import 'package:alura_challenge_mobile/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,12 +37,16 @@ class LoginView extends GetView<LoginController> {
                 padding: const EdgeInsets.all(8.0),
                 child: Button(
                     text: 'Login',
-                    onClick: () async =>
-                     controller.singInController(
+                    onClick: () async {
+                      bool response = await controller.singInController(
                         controller.usernameController.text,
                         controller.passwordController.text,
-                      )
-                    ),
+                      );
+                      if (response) {
+                        // goes to the next page and remove previous one
+                        Get.offAndToNamed(Routes.HOME);
+                      }
+                    }),
               ),
             ],
           ),

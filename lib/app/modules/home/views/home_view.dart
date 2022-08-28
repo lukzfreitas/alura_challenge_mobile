@@ -9,10 +9,10 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Alura Challenge')),
+      appBar: AppBar(title: const Text('Your Income')),
       body: Column(children: [
         const Input(),
-        Button(text: 'Login', onClick: () => {},),
+        Button(text: 'Transfer', onClick: () => {},),
       ],),
     );
   }
