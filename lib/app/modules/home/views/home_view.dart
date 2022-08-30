@@ -25,10 +25,11 @@ class HomeView extends StatelessWidget {
               child: Text(
                 'Ações da conta',
                 style: TextStyle(
-                    color: Color(0xffFFFFFF),
-                    fontFamily: 'Roboto',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 23.0),
+                  color: Color(0xffFFFFFF),
+                  fontFamily: 'Roboto',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 23.0,
+                ),
               ),
             ),
             Padding(
