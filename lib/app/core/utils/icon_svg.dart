@@ -10,7 +10,7 @@ class IconsSvg {
 
 SvgPicture LoadIconSvg(String iconsSvg) {
   return SvgPicture.asset(
-    iconsSvg,
+    iconsSvg,    
     clipBehavior: Clip.antiAlias,
   );
 }

@@ -2,10 +2,12 @@ import 'package:alura_challenge_mobile/app/core/utils/icon_svg.dart';
 import 'package:flutter/cupertino.dart';
 
 class ActionCard extends StatelessWidget {
+  final String title;
   final double width;
   final String icon;
 
-  const ActionCard({Key? key, required this.width, required this.icon})
+  const ActionCard(
+      {Key? key, required this.title, required this.width, required this.icon})
       : super(key: key);
 
   @override
@@ -20,9 +22,20 @@ class ActionCard extends StatelessWidget {
         ),
       ),
       child: Column(
-        children:[
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
           LoadIconSvg(icon),
-        ] 
+          const SizedBox(height: 11.0),
+          Text(
+            title,
+            style: const TextStyle(
+              color: Color(0xffFFFFFF),
+              fontFamily: 'Roboto',
+              fontStyle: FontStyle.normal,
+              fontSize: 14.0,
+            ),
+          ),
+        ],
       ),
     );
   }

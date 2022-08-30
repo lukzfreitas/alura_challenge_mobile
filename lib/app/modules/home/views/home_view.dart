@@ -38,14 +38,17 @@ class HomeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ActionCard(
+                    title: 'Depositar',
                     width: constraints.maxWidth / 3.5,
                     icon: IconsSvg.WALLET,
                   ),
                   ActionCard(
+                    title: 'Transferir',
                     width: constraints.maxWidth / 3.5,
                     icon: IconsSvg.CACHED,
                   ),
                   ActionCard(
+                    title: 'Ler',
                     width: constraints.maxWidth / 3.5,
                     icon: IconsSvg.CENTER_FOCO,
                   ),
