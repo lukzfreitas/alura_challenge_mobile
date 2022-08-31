@@ -7,6 +7,10 @@ class LoginController extends GetxController {
 
   LoginController(this.sessionProvider);
 
+  final _loading = false.obs;
+  bool get loading => _loading.value;
+  set loading(bool value) => _loading.value = value;
+
   final _formKey = GlobalKey<FormState>().obs;
   GlobalKey<FormState> get formKey => _formKey.value;
 

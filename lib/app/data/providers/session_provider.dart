@@ -4,9 +4,16 @@ import 'package:alura_challenge_mobile/app/data/models/user_model.dart';
 import 'package:alura_challenge_mobile/app/data/preferences/user_preferences.dart';
 import 'package:dio/dio.dart';
 
-
 class SessionProvider {
-  final request = Dio();  
+  final request = Dio();
+
+  final opt = Options(
+    followRedirects: false,
+    validateStatus: (status) {
+      return status! < 500;
+    },
+    headers: {'Content-Type': 'application/json'},
+  );
 
   static const BASE_URL = 'https://challenge-backend-lukz.herokuapp.com/login';
 
@@ -17,17 +24,15 @@ class SessionProvider {
 
   Future<bool> singInProvider(String username, String password) async {
     try {
-      final opt = Options(
-        followRedirects: false,
-        validateStatus: (status) {
-          return status! < 500;
-        },
-        headers: {'Content-Type': 'application/json'},
-      );
       final response = await request.post(
         BASE_URL,
         options: opt,
-        data: jsonEncode({username: username, password: password}),
+        data: jsonEncode(
+          {
+            "username": username,
+            "password": password,
+          },
+        ),
       );
       if (response.statusCode == 201) {
         var user = UserModel.fromJson(response.data);
@@ -35,7 +40,7 @@ class SessionProvider {
         await prefs.setUser(user);
         return true;
       } else {
-        _error = 'error';
+        _error = response.statusMessage.toString();
         return false;
       }
     } catch (e) {
