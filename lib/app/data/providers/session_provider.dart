@@ -5,7 +5,7 @@ import 'package:alura_challenge_mobile/app/data/preferences/user_preferences.dar
 import 'package:get/get.dart';
 
 class SessionProvider extends GetConnect {
-  static const BASE_URL = 'https://challenge-backend-lukz.herokuapp.com/login';
+  static const baseurl = 'https://challenge-backend-lukz.herokuapp.com/login';
 
   final prefs = UserPreferences();
 
@@ -15,7 +15,7 @@ class SessionProvider extends GetConnect {
 
   Future<bool> signInProvider(String username, String password) async {
     Response response = await post(
-      BASE_URL,
+      baseurl,
       {
         "username": username,
         "password": password,
