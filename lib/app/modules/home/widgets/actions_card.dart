@@ -24,7 +24,7 @@ class ActionCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          LoadIconSvg(icon),
+          loadIconSvg(icon),
           const SizedBox(height: 11.0),
           Text(
             title,

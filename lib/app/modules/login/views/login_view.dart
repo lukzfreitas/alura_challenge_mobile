@@ -14,7 +14,7 @@ class LoginView extends GetView<LoginController> {
       controller.passwordController.text,
     );
     if (isOk) {
-      Get.offAndToNamed(Routes.HOME);
+      Get.offAndToNamed(Routes.home);
     } else {
       Get.showSnackbar(
         GetSnackBar(

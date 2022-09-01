@@ -46,7 +46,7 @@ class Header extends StatelessWidget {
                   ),
                 ],
               ),
-              LoadIconSvg(IconsSvg.USER)
+              loadIconSvg(IconsSvg.user)
             ],
           ),
         ),

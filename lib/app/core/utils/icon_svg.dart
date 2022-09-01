@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class IconsSvg {
-  static const String USER = 'assets/icons/user.svg';
-  static const String CENTER_FOCO = 'assets/icons/center_foco.svg';
-  static const String CACHED = 'assets/icons/cached.svg';
-  static const String WALLET = 'assets/icons/wallet.svg';
+  static const String user = 'assets/icons/user.svg';
+  static const String centerFoco= 'assets/icons/center_foco.svg';
+  static const String cached = 'assets/icons/cached.svg';
+  static const String wallet = 'assets/icons/wallet.svg';
 }
 
-SvgPicture LoadIconSvg(String iconsSvg) {
+SvgPicture loadIconSvg(String iconsSvg) {
   return SvgPicture.asset(
     iconsSvg,    
     clipBehavior: Clip.antiAlias,

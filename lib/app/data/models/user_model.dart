@@ -8,8 +8,8 @@ class UserModel {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['token'] = token;
-    return _data;
+    final data = <String, dynamic>{};
+    data['token'] = token;
+    return data;
   }
 }

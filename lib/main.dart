@@ -6,7 +6,7 @@ void main() async {
   runApp(GetMaterialApp(
     title: 'Alura Challenge',
     debugShowCheckedModeBanner: false,
-    initialRoute: Routes.LOGIN,
+    initialRoute: Routes.login,
     getPages: AppPages.routes,    
     theme: ThemeData(
       primaryColor: const Color(0xffAB47BC),
