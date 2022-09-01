@@ -1,6 +1,7 @@
 import 'package:alura_challenge_mobile/app/global_widgets/button.dart';
 import 'package:alura_challenge_mobile/app/global_widgets/input.dart';
 import 'package:alura_challenge_mobile/app/modules/login/controllers/login_controller.dart';
+import 'package:alura_challenge_mobile/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,19 +9,16 @@ class LoginView extends GetView<LoginController> {
   const LoginView({Key? key}) : super(key: key);
 
   login() async {
-    bool response = await controller.singInController(
+    bool isOk = await controller.signInController(
       controller.usernameController.text,
       controller.passwordController.text,
     );
-    controller.loading = true;
-    if (response) {
-      // Get.offAndToNamed(Routes.HOME);
-      controller.usernameController.text = '';
-      controller.passwordController.text = '';
+    if (isOk) {
+      Get.offAndToNamed(Routes.HOME);
     } else {
       Get.showSnackbar(
         GetSnackBar(
-          title: 'Advice',
+          title: 'Access Denied',
           message: controller.error,
           snackPosition: SnackPosition.TOP,
           backgroundColor: Colors.red,
@@ -39,7 +37,6 @@ class LoginView extends GetView<LoginController> {
         ),
       );
     }
-    controller.loading = false;
   }
 
   @override
@@ -69,9 +66,16 @@ class LoginView extends GetView<LoginController> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Button(
-                  text: controller.loading ? 'Loading...' : 'Login',
-                  onClick: () => login(),
+                child: GetBuilder<LoginController>(
+                  builder: (controller) => controller.isLoading
+                      ? Button(
+                          text: 'Wait...',
+                          onClick: () => login(),
+                        )
+                      : Button(
+                          text: 'Login',
+                          onClick: () => login(),
+                        ),
                 ),
               ),
             ],
