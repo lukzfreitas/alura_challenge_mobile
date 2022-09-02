@@ -27,7 +27,8 @@ class Header extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
-                mainAxisAlignment: MainAxisAlignment.end,                
+                mainAxisAlignment: MainAxisAlignment.end, 
+                crossAxisAlignment: CrossAxisAlignment.start,               
                 children: [
                   Text(
                     amount,
@@ -49,7 +50,7 @@ class Header extends StatelessWidget {
                   ),
                 ],
               ),
-              loadIconSvg(IconsSvg.user)
+              IconsSvg.loadIconSvg(IconsSvg.user)
             ],
           ),
         ),

@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
 class ActiviesCard extends StatelessWidget {
-  const ActiviesCard({Key? key}) : super(key: key);
+
+  final String amount;
+
+  const ActiviesCard({Key? key, required this.amount}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +22,8 @@ class ActiviesCard extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 'Total gasto',
                 style: TextStyle(
                   color: Color(0xffFFFFFF),
@@ -30,10 +33,10 @@ class ActiviesCard extends StatelessWidget {
                   fontSize: 14.0,
                 ),
               ),
-              SizedBox(height: 3),
+              const SizedBox(height: 3),
               Text(
-                '\$9900.97',
-                style: TextStyle(
+                amount,
+                style: const TextStyle(
                   color: Color(0xffFFFFFF),
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w400,
@@ -41,8 +44,8 @@ class ActiviesCard extends StatelessWidget {
                   fontSize: 28.0,
                 ),
               ),
-              SizedBox(height: 8),
-              Text(
+              const SizedBox(height: 8),
+              const Text(
                 'Esse mês você gastou \$1500.00 com jogos. Tente abaixar esse custo!',
                 style: TextStyle(
                   color: Color(0xffFFFFFF),
@@ -52,7 +55,7 @@ class ActiviesCard extends StatelessWidget {
                   fontSize: 15.0,
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 8.0),
                 child: Text(
                   'Diga-me como',
