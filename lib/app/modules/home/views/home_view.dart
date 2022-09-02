@@ -5,6 +5,7 @@ import 'package:alura_challenge_mobile/app/modules/home/controllers/home_control
 import 'package:alura_challenge_mobile/app/modules/home/widgets/actions_card.dart';
 import 'package:alura_challenge_mobile/app/modules/home/widgets/activies_card.dart';
 import 'package:alura_challenge_mobile/app/modules/home/widgets/header.dart';
+import 'package:alura_challenge_mobile/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,9 +29,13 @@ class HomeView extends GetView<HomeController> {
                             amount: snapshot.data!.balance,
                             locale: 'en_US',
                             symbol: '\$',
-                          ).toString(),
+                          ),
+                          logout: () => AppPages.logout(),
                         )
-                      : const Header(amount: 'Carregando...'),
+                      : Header(
+                          amount: 'Carregando...',
+                          logout: () => AppPages.logout(),
+                        ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: snapshot.hasData
@@ -39,7 +44,7 @@ class HomeView extends GetView<HomeController> {
                               amount: snapshot.data!.totalExpense,
                               locale: 'en_US',
                               symbol: '\$',
-                            ).toString(),
+                            ),
                           )
                         : const ActiviesCard(amount: 'Carregando...'),
                   ),

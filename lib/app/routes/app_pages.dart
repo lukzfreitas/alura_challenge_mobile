@@ -1,3 +1,4 @@
+import 'package:alura_challenge_mobile/app/data/preferences/user_preferences.dart';
 import 'package:alura_challenge_mobile/app/modules/home/bindings/home_bindings.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,14 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const initial = Routes.home;
+  static const initial = Routes.home;  
+
+  static logout() async {
+    final prefs = UserPreferences();
+    await prefs.deleteUser();
+    prefs.deleteUser();
+    Get.offAndToNamed(Routes.login);
+  }
 
   static final List<GetPage> routes = [
     GetPage(
@@ -22,6 +30,6 @@ class AppPages {
       name: _Paths.login,
       page: () => const LoginView(),
       binding: LoginBinding(),
-    ),    
+    ),
   ];
 }

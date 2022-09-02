@@ -2,10 +2,12 @@ import 'package:alura_challenge_mobile/app/core/utils/icon_svg.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
-
   final String amount;
 
-  const Header({Key? key, required this.amount}) : super(key: key);
+  final Function logout;
+
+  const Header({Key? key, required this.amount, required this.logout})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +29,8 @@ class Header extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
-                mainAxisAlignment: MainAxisAlignment.end, 
-                crossAxisAlignment: CrossAxisAlignment.start,               
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     amount,
@@ -50,7 +52,10 @@ class Header extends StatelessWidget {
                   ),
                 ],
               ),
-              IconsSvg.loadIconSvg(IconsSvg.user)
+              IconButton(
+                onPressed: () => logout(),
+                icon: IconsSvg.loadIconSvg(IconsSvg.user),
+              )
             ],
           ),
         ),
