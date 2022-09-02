@@ -2,7 +2,10 @@ import 'package:alura_challenge_mobile/app/core/utils/icon_svg.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+
+  final String amount;
+
+  const Header({Key? key, required this.amount}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +28,17 @@ class Header extends StatelessWidget {
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,                
-                children: const [
+                children: [
                   Text(
-                    "\$1000.00",
-                    style: TextStyle(
+                    amount,
+                    style: const TextStyle(
                       color: Color(0xffFFFFFF),
                       fontFamily: 'Roboto',
                       fontStyle: FontStyle.normal,
                       fontSize: 28.0,
                     ),
                   ),
-                  Text(
+                  const Text(
                     "Balanço disponível",
                     style: TextStyle(
                       color: Color(0xffFFFFFF),

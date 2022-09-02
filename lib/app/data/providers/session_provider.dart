@@ -26,9 +26,8 @@ class SessionProvider extends GetConnect {
       await prefs.deleteUser();
       await prefs.setUser(user);
       return true;
-    } else {
-      _error = response.statusText.toString();
-      return false;
-    }    
+    }
+    _error = response.statusText.toString();
+    return false;
   }
 }

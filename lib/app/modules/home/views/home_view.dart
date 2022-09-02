@@ -1,10 +1,13 @@
 import 'package:alura_challenge_mobile/app/core/utils/icon_svg.dart';
+import 'package:alura_challenge_mobile/app/data/models/extract_model.dart';
+import 'package:alura_challenge_mobile/app/modules/home/controllers/home_controller.dart';
 import 'package:alura_challenge_mobile/app/modules/home/widgets/actions_card.dart';
 import 'package:alura_challenge_mobile/app/modules/home/widgets/activies_card.dart';
 import 'package:alura_challenge_mobile/app/modules/home/widgets/header.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
 
   @override
@@ -15,7 +18,14 @@ class HomeView extends StatelessWidget {
         builder: (context, constraints) => Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Header(),
+            FutureBuilder<ExtractModel>(
+                future: controller.extractController(),                
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {                    
+                    return Header(amount: snapshot.data!.balance.toString());
+                  }
+                  return const Header(amount: 'Carregando');
+                }),
             const Padding(
               padding: EdgeInsets.all(16.0),
               child: ActiviesCard(),
