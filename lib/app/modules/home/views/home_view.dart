@@ -14,8 +14,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xff373737),
+    return Scaffold(      
       body: LayoutBuilder(
         builder: (context, constraints) => FutureBuilder<ExtractModel>(
             future: controller.extractController(),

@@ -1,11 +1,9 @@
-// import 'dart:convert';
-
 import 'package:alura_challenge_mobile/app/data/models/user_model.dart';
 import 'package:alura_challenge_mobile/app/data/preferences/user_preferences.dart';
 import 'package:get/get.dart';
 
 class SessionProvider extends GetConnect {
-  static const baseurl = 'https://challenge-backend-lukz.herokuapp.com/login';
+  static const baseurl = 'https://challenge-backend-lukz.herokuapp.com/auth/login';
 
   final prefs = UserPreferences();
 

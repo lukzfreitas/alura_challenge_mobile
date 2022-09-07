@@ -7,8 +7,23 @@ void main() async {
     title: 'Alura Challenge',
     debugShowCheckedModeBanner: false,
     initialRoute: Routes.login,
-    getPages: AppPages.routes,    
+    getPages: AppPages.routes,
     theme: ThemeData(
+      brightness: Brightness.dark,
+      inputDecorationTheme: const InputDecorationTheme(
+          focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xffAB47BC),
+        ),
+      )),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(
+            const Color(0xffAB47BC),
+          ),
+        ),
+      ),
+      buttonTheme: const ButtonThemeData(buttonColor: Color(0xffAB47BC)),
       primaryColor: const Color(0xffAB47BC),
       backgroundColor: const Color(0xff373737),
     ),

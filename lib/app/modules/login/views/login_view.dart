@@ -41,8 +41,7 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Alura Challenge')),
+    return Scaffold(      
       body: LayoutBuilder(
         builder: (context, constraints) => Padding(
           padding: EdgeInsets.symmetric(horizontal: constraints.maxWidth / 7),
@@ -60,8 +59,9 @@ class LoginView extends GetView<LoginController> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Input(
-                  controller: controller.passwordController,
+                  controller: controller.passwordController,                  
                   hintText: 'Password',
+                  isPassword: true,
                 ),
               ),
               Padding(
