@@ -9,8 +9,10 @@ class ExtractProvider extends GetConnect {
 
   Future<ExtractModel> extractProvider(int month, int year) async {
     String token = await prefs.getToken();
-    Response response = await get('$baseurl/$year/$month',
-        headers: {'Authorization': "Bearer $token"});
+    Response response = await get(
+      '$baseurl/$year/$month',
+      headers: {'Authorization': "Bearer $token"},
+    );
 
     if (response.isOk) {
       ExtractModel extractModel = ExtractModel.fromMap(response.body);

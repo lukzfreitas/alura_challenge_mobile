@@ -5,7 +5,6 @@ import 'package:alura_challenge_mobile/app/modules/home/controllers/home_control
 import 'package:alura_challenge_mobile/app/modules/home/widgets/actions_card.dart';
 import 'package:alura_challenge_mobile/app/modules/home/widgets/activies_card.dart';
 import 'package:alura_challenge_mobile/app/modules/home/widgets/header.dart';
-import 'package:alura_challenge_mobile/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +13,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(      
+    return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) => FutureBuilder<ExtractModel>(
             future: controller.extractController(),
@@ -29,11 +28,11 @@ class HomeView extends GetView<HomeController> {
                             locale: 'en_US',
                             symbol: '\$',
                           ),
-                          logout: () => AppPages.logout(),
+                          logout: () => controller.logoutController(),
                         )
                       : Header(
                           amount: 'Carregando...',
-                          logout: () => AppPages.logout(),
+                          logout: () => controller.logoutController(),
                         ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -61,7 +60,9 @@ class HomeView extends GetView<HomeController> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 8.0),
+                      horizontal: 16.0,
+                      vertical: 8.0,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
