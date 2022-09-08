@@ -2,11 +2,11 @@ import 'package:alura_challenge_mobile/app/core/utils/currency_input_formatter.d
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class InputDeposit extends StatelessWidget {
+class InputRevenue extends StatelessWidget {
   final TextEditingController? controller;
   final String hintText;
 
-  const InputDeposit({
+  const InputRevenue({
     Key? key,    
     required this.hintText,
     this.controller,

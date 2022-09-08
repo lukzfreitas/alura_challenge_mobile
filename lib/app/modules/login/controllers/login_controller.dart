@@ -7,10 +7,7 @@ class LoginController extends GetxController {
 
   LoginController(this.sessionProvider);
 
-  bool isLoading = false;
-
-  final _formKey = GlobalKey<FormState>().obs;
-  GlobalKey<FormState> get formKey => _formKey.value;
+  bool isLoading = false;  
 
   final _usernameController = TextEditingController().obs;
   TextEditingController get usernameController => _usernameController.value;

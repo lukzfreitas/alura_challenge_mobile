@@ -1,6 +1,6 @@
-import 'package:alura_challenge_mobile/app/modules/deposit/bindings/deposit_bindings.dart';
-import 'package:alura_challenge_mobile/app/modules/deposit/views/deposit_view.dart';
 import 'package:alura_challenge_mobile/app/modules/home/bindings/home_bindings.dart';
+import 'package:alura_challenge_mobile/app/modules/revenue/bindings/revenue_bindings.dart';
+import 'package:alura_challenge_mobile/app/modules/revenue/views/revenue_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/home/views/home_view.dart';
@@ -30,9 +30,9 @@ class AppPages {
       binding: LoginBinding(),
     ),
     GetPage(
-      name: _Paths.deposit,
-      page: () => const DepositView(),
-      binding: DepositBinding(),
+      name: _Paths.revenue,
+      page: () => const RevenueView(),
+      binding: RevenueBinding(),
     ),
   ];
 }

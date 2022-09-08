@@ -71,7 +71,7 @@ class HomeView extends GetView<HomeController> {
                           title: 'Depositar',
                           width: constraints.maxWidth / 3.5,
                           icon: IconsSvg.wallet,
-                          onClick: () => Get.toNamed(Routes.deposit),
+                          onClick: () => Get.toNamed(Routes.revenue),
                         ),
                         ActionCard(
                           title: 'Transferir',
