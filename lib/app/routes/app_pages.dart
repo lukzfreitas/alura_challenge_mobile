@@ -1,3 +1,5 @@
+import 'package:alura_challenge_mobile/app/modules/deposit/bindings/deposit_bindings.dart';
+import 'package:alura_challenge_mobile/app/modules/deposit/views/deposit_view.dart';
 import 'package:alura_challenge_mobile/app/modules/home/bindings/home_bindings.dart';
 import 'package:get/get.dart';
 
@@ -26,6 +28,11 @@ class AppPages {
       name: _Paths.login,
       page: () => const LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.deposit,
+      page: () => const DepositView(),
+      binding: DepositBinding(),
     ),
   ];
 }

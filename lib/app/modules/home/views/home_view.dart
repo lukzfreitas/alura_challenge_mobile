@@ -5,6 +5,7 @@ import 'package:alura_challenge_mobile/app/modules/home/controllers/home_control
 import 'package:alura_challenge_mobile/app/modules/home/widgets/actions_card.dart';
 import 'package:alura_challenge_mobile/app/modules/home/widgets/activies_card.dart';
 import 'package:alura_challenge_mobile/app/modules/home/widgets/header.dart';
+import 'package:alura_challenge_mobile/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -70,16 +71,19 @@ class HomeView extends GetView<HomeController> {
                           title: 'Depositar',
                           width: constraints.maxWidth / 3.5,
                           icon: IconsSvg.wallet,
+                          onClick: () => Get.toNamed(Routes.deposit),
                         ),
                         ActionCard(
                           title: 'Transferir',
                           width: constraints.maxWidth / 3.5,
                           icon: IconsSvg.cached,
+                          onClick: () => {},
                         ),
                         ActionCard(
                           title: 'Ler',
                           width: constraints.maxWidth / 3.5,
                           icon: IconsSvg.centerFoco,
+                          onClick: () => {},
                         ),
                       ],
                     ),

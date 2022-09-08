@@ -10,6 +10,9 @@ void main() async {
     getPages: AppPages.routes,
     theme: ThemeData(
       brightness: Brightness.dark,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Color(0xffAB47BC),
+      ),
       inputDecorationTheme: const InputDecorationTheme(
           focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
