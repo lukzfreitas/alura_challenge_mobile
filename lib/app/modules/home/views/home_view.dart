@@ -68,16 +68,16 @@ class HomeView extends GetView<HomeController> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ActionCard(
-                          title: 'Depositar',
+                          title: 'Receitas',
                           width: constraints.maxWidth / 3.5,
                           icon: IconsSvg.wallet,
                           onClick: () => Get.toNamed(Routes.revenue),
                         ),
                         ActionCard(
-                          title: 'Transferir',
+                          title: 'Despesas',
                           width: constraints.maxWidth / 3.5,
                           icon: IconsSvg.cached,
-                          onClick: () => {},
+                          onClick: () => Get.toNamed(Routes.expense),
                         ),
                         ActionCard(
                           title: 'Ler',

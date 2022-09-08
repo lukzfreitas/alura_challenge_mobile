@@ -1,24 +1,22 @@
 import 'package:alura_challenge_mobile/app/core/utils/currency_input_formatter.dart';
 import 'package:alura_challenge_mobile/app/global_widgets/button.dart';
 import 'package:alura_challenge_mobile/app/global_widgets/input.dart';
-import 'package:alura_challenge_mobile/app/modules/revenue/controllers/revenue_controller.dart';
+import 'package:alura_challenge_mobile/app/modules/expense/controllers/expense_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class RevenueView extends GetView<RevenueController> {
-  const RevenueView({Key? key}) : super(key: key);
+class ExpenseView extends GetView<ExpenseController> {
+  const ExpenseView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Receitas')),
+      appBar: AppBar(title: const Text('Despesas')),
       body: LayoutBuilder(
         builder: (context, constraints) => Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: constraints.maxWidth / 7.0,
-            vertical: 20.0,
-          ),
+              horizontal: constraints.maxWidth / 7.0, vertical: 20.0),
           child: Column(
             children: [
               Input(
@@ -36,9 +34,14 @@ class RevenueView extends GetView<RevenueController> {
                 ],
               ),
               const SizedBox(height: 20.0),
+              Input(
+                hintText: 'Informe a categoria',
+                controller: controller.categoryController,
+              ),
+              const SizedBox(height: 20.0),
               Button(
                 text: 'Salvar',
-                onClick: () async => await controller.revenueController(),
+                onClick: () async => await controller.expenseController(),
               ),
             ],
           ),
