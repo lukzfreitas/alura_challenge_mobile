@@ -64,26 +64,55 @@ class HomeView extends GetView<HomeController> {
                       horizontal: 16.0,
                       vertical: 8.0,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: ListView(
+                      shrinkWrap: true,                      
                       children: [
-                        ActionCard(
-                          title: 'Receitas',
-                          width: constraints.maxWidth / 3.5,
-                          icon: IconsSvg.wallet,
-                          onClick: () => Get.toNamed(Routes.revenue),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ActionCard(
+                              title: 'Receitas',
+                              width: constraints.maxWidth / 3.5,
+                              icon: IconsSvg.wallet,
+                              onClick: () => Get.toNamed(Routes.revenue),
+                            ),
+                            ActionCard(
+                              title: 'Despesas',
+                              width: constraints.maxWidth / 3.5,
+                              icon: IconsSvg.cached,
+                              onClick: () => Get.toNamed(Routes.expense),
+                            ),
+                            ActionCard(
+                              title: 'Ler',
+                              width: constraints.maxWidth / 3.5,
+                              icon: IconsSvg.centerFoco,
+                              onClick: () => {},
+                            ),
+                          ],
                         ),
-                        ActionCard(
-                          title: 'Despesas',
-                          width: constraints.maxWidth / 3.5,
-                          icon: IconsSvg.cached,
-                          onClick: () => Get.toNamed(Routes.expense),
-                        ),
-                        ActionCard(
-                          title: 'Ler',
-                          width: constraints.maxWidth / 3.5,
-                          icon: IconsSvg.centerFoco,
-                          onClick: () => {},
+                        const SizedBox(height: 20.0),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ActionCard(
+                              title: 'Últimas Receitas',
+                              width: constraints.maxWidth / 3.5,
+                              icon: IconsSvg.wallet,
+                              onClick: () => Get.toNamed(Routes.revenueList),
+                            ),
+                            ActionCard(
+                              title: 'Despesas',
+                              width: constraints.maxWidth / 3.5,
+                              icon: IconsSvg.cached,
+                              onClick: () => Get.toNamed(Routes.expense),
+                            ),
+                            ActionCard(
+                              title: 'Ler',
+                              width: constraints.maxWidth / 3.5,
+                              icon: IconsSvg.centerFoco,
+                              onClick: () => {},
+                            ),
+                          ],
                         ),
                       ],
                     ),

@@ -2,6 +2,7 @@ import 'package:alura_challenge_mobile/app/modules/expense/bindings/expense_bind
 import 'package:alura_challenge_mobile/app/modules/expense/views/expense_view.dart';
 import 'package:alura_challenge_mobile/app/modules/home/bindings/home_bindings.dart';
 import 'package:alura_challenge_mobile/app/modules/revenue/bindings/revenue_bindings.dart';
+import 'package:alura_challenge_mobile/app/modules/revenue/views/list_revenue_view.dart';
 import 'package:alura_challenge_mobile/app/modules/revenue/views/revenue_view.dart';
 import 'package:get/get.dart';
 
@@ -14,9 +15,9 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const initial = Routes.home;  
+  static const initial = Routes.home;
 
-  static logout() async {    
+  static logout() async {
     Get.offAndToNamed(Routes.login);
   }
 
@@ -34,6 +35,11 @@ class AppPages {
     GetPage(
       name: _Paths.revenue,
       page: () => const RevenueView(),
+      binding: RevenueBinding(),
+    ),
+    GetPage(
+      name: _Paths.revenueList,
+      page: () => const ListRevenueView(),
       binding: RevenueBinding(),
     ),
     GetPage(

@@ -1,4 +1,5 @@
 import 'package:alura_challenge_mobile/app/data/models/income_model.dart';
+import 'package:alura_challenge_mobile/app/data/models/money_model.dart';
 
 class RevenueModel extends IncomeModel {
   RevenueModel({
@@ -6,4 +7,12 @@ class RevenueModel extends IncomeModel {
     required super.money,
     required super.date,
   });
+
+  factory RevenueModel.fromMap(Map<String, dynamic> map) {
+    return RevenueModel(
+      description: map['description'] ?? '',
+      money: Money.fromMap(map['money']),
+      date: map['date'] ?? '',
+    );
+  }
 }
