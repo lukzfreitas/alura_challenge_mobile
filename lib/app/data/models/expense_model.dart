@@ -11,6 +11,7 @@ class ExpenseModel extends IncomeModel {
     required super.money,
     required super.date,
     required this.category,
+    super.typeIncome
   });  
 
   factory ExpenseModel.fromMap(Map<String, dynamic> map) {
@@ -19,6 +20,7 @@ class ExpenseModel extends IncomeModel {
       money: Money.fromMap(map['money']),
       date: map['date'] ?? '',
       category: map['category']?.toInt() ?? 0,      
+      typeIncome: map['typeIncome'] ?? '',
     );
   }
 

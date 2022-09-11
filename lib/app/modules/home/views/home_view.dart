@@ -83,10 +83,10 @@ class HomeView extends GetView<HomeController> {
                               onClick: () => Get.toNamed(Routes.expense),
                             ),
                             ActionCard(
-                              title: 'Ler',
+                              title: 'Cadastrar Tipos de Despesas e Receitas',
                               width: constraints.maxWidth / 3.5,
                               icon: IconsSvg.centerFoco,
-                              onClick: () => {},
+                              onClick: () => Get.toNamed(Routes.typeIncome),
                             ),
                           ],
                         ),
@@ -101,13 +101,13 @@ class HomeView extends GetView<HomeController> {
                               onClick: () => Get.toNamed(Routes.revenueList),
                             ),
                             ActionCard(
-                              title: 'Despesas',
+                              title: 'Últimas Despesas',
                               width: constraints.maxWidth / 3.5,
                               icon: IconsSvg.cached,
                               onClick: () => Get.toNamed(Routes.expense),
                             ),
                             ActionCard(
-                              title: 'Ler',
+                              title: 'Tipos de Despesas e Receitas',
                               width: constraints.maxWidth / 3.5,
                               icon: IconsSvg.centerFoco,
                               onClick: () => {},

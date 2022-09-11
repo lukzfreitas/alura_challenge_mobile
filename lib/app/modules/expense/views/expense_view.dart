@@ -1,5 +1,7 @@
 import 'package:alura_challenge_mobile/app/core/utils/currency_input_formatter.dart';
+import 'package:alura_challenge_mobile/app/data/models/dropdown_item_model.dart';
 import 'package:alura_challenge_mobile/app/global_widgets/button.dart';
+import 'package:alura_challenge_mobile/app/global_widgets/dropdown.dart';
 import 'package:alura_challenge_mobile/app/global_widgets/input.dart';
 import 'package:alura_challenge_mobile/app/modules/expense/controllers/expense_controller.dart';
 import 'package:flutter/material.dart';
@@ -34,10 +36,19 @@ class ExpenseView extends GetView<ExpenseController> {
                 ],
               ),
               const SizedBox(height: 20.0),
-              Input(
-                hintText: 'Informe a categoria',
-                controller: controller.categoryController,
-              ),
+              FutureBuilder<List<DropdownItem>>(
+                  future: controller.listTypeIncomeController(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData) {
+                      return Dropdown(
+                          items: snapshot.data,
+                          onChanged: (DropdownItem item) {
+                            controller.typeIncomeId.value = item.id;
+                          });
+                    } else {
+                      return const Text('Carregando');
+                    }
+                  }),
               const SizedBox(height: 20.0),
               Button(
                 text: 'Salvar',

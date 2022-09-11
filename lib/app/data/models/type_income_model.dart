@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 class TypeIncome {
-  String id;
+  String? id;
   String description;
   int code;
   TypeIncome({
-    required this.id,
+    this.id,
     required this.description,
     required this.code,
   });

@@ -33,13 +33,16 @@ class ActionCard extends StatelessWidget {
           children: [
             IconsSvg.loadIconSvg(icon),
             const SizedBox(height: 11.0),
-            Text(
-              title,
-              style: const TextStyle(
-                color: Color(0xffFFFFFF),
-                fontFamily: 'Roboto',
-                fontStyle: FontStyle.normal,
-                fontSize: 14.0,
+            Center(
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Color(0xffFFFFFF),
+                  fontFamily: 'Roboto',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 14.0,
+                ),
               ),
             ),
           ],

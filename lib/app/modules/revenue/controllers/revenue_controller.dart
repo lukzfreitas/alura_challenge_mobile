@@ -40,7 +40,7 @@ class RevenueController extends IncomeController implements GetxController {
     List<TypeIncome> list = await typeIncomeProvider.listTypeIncomeProvider();
     List<DropdownItem> listDropdownItem = [];
     for (var element in list) {
-      listDropdownItem.add(DropdownItem(element.id, element.description));
+      listDropdownItem.add(DropdownItem(element.id ?? '', element.description));
     }
     return listDropdownItem;
   }
