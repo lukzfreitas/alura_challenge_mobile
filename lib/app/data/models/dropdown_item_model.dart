@@ -1,5 +1,6 @@
 class DropdownItem {
+  String id;
   String title;
 
-  DropdownItem(this.title);
+  DropdownItem(this.id, this.title);
 }

@@ -8,4 +8,6 @@ abstract class IncomeController extends GetxController {
 
   final _amountController = TextEditingController().obs;
   TextEditingController get amountController => _amountController.value;
+
+  final typeIncomeId = ''.obs;
 }

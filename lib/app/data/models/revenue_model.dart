@@ -6,6 +6,7 @@ class RevenueModel extends IncomeModel {
     required super.description,
     required super.money,
     required super.date,
+    super.typeIncome
   });
 
   factory RevenueModel.fromMap(Map<String, dynamic> map) {
@@ -13,6 +14,7 @@ class RevenueModel extends IncomeModel {
       description: map['description'] ?? '',
       money: Money.fromMap(map['money']),
       date: map['date'] ?? '',
+      typeIncome: map['typeIncome'] ?? '',
     );
   }
 }

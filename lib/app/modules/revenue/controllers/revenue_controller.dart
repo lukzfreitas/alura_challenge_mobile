@@ -23,10 +23,11 @@ class RevenueController extends IncomeController implements GetxController {
   Future<bool> revenueController() async {
     int amount =
         CurrencyInputFormatter.convertToInteger(amountController.value.text);
-    RevenueModel revenueModel = RevenueModel(
+    RevenueModel revenueModel = RevenueModel(      
       description: descriptionController.value.text,
       money: Money(amount: amount, currency: 'BRL'),
       date: DateFormat('yyyy-MM-dd').format(DateTime.now()),
+      typeIncome: typeIncomeId.value
     );
     return revenueProvider.revenueProvider(revenueModel);
   }
@@ -39,7 +40,7 @@ class RevenueController extends IncomeController implements GetxController {
     List<TypeIncome> list = await typeIncomeProvider.listTypeIncomeProvider();
     List<DropdownItem> listDropdownItem = [];
     for (var element in list) {
-      listDropdownItem.add(DropdownItem(element.description));
+      listDropdownItem.add(DropdownItem(element.id, element.description));
     }
     return listDropdownItem;
   }

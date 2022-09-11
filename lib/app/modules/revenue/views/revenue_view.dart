@@ -40,9 +40,13 @@ class RevenueView extends GetView<RevenueController> {
               const SizedBox(height: 20.0),
               FutureBuilder<List<DropdownItem>>(
                   future: controller.listTypeIncomeController(),
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {                    
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
                     if (snapshot.hasData) {
-                      return Dropdown(items: snapshot.data);
+                      return Dropdown(
+                          items: snapshot.data,
+                          onChanged: (DropdownItem item) {
+                            controller.typeIncomeId.value = item.id;
+                          });
                     } else {
                       return const Text('Carregando');
                     }
