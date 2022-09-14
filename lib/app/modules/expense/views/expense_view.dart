@@ -21,6 +21,22 @@ class ExpenseView extends GetView<ExpenseController> {
               horizontal: constraints.maxWidth / 7.0, vertical: 20.0),
           child: Column(
             children: [
+              FutureBuilder<List<DropdownItem>>(
+                future: controller.listTypeIncomeController(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.hasData) {
+                    return Dropdown(
+                        hintText: 'Selecione o tipo da despesa',
+                        items: snapshot.data,
+                        onChanged: (DropdownItem item) {
+                          controller.typeIncomeId.value = item.id;
+                        });
+                  } else {
+                    return const Text('Carregando');
+                  }
+                },
+              ),
+              const SizedBox(height: 20.0),
               Input(
                 hintText: 'Informe uma descrição',
                 controller: controller.descriptionController,
@@ -35,20 +51,6 @@ class ExpenseView extends GetView<ExpenseController> {
                   CurrencyInputFormatter()
                 ],
               ),
-              const SizedBox(height: 20.0),
-              FutureBuilder<List<DropdownItem>>(
-                  future: controller.listTypeIncomeController(),
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {
-                    if (snapshot.hasData) {
-                      return Dropdown(
-                          items: snapshot.data,
-                          onChanged: (DropdownItem item) {
-                            controller.typeIncomeId.value = item.id;
-                          });
-                    } else {
-                      return const Text('Carregando');
-                    }
-                  }),
               const SizedBox(height: 20.0),
               Button(
                 text: 'Salvar',
