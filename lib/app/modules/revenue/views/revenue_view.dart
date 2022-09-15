@@ -21,44 +21,51 @@ class RevenueView extends GetView<RevenueController> {
             horizontal: constraints.maxWidth / 7.0,
             vertical: 20.0,
           ),
-          child: Column(
-            children: [
-              FutureBuilder<List<DropdownItem>>(
-                future: controller.listTypeIncomeController(),
-                builder: (BuildContext context, AsyncSnapshot snapshot) {
-                  if (snapshot.hasData) {
-                    return Dropdown(
+          child: Form(
+            key: controller.formKey,
+            child: Column(
+              children: [
+                FutureBuilder<List<DropdownItem>>(
+                  future: controller.listTypeIncomeController(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData) {
+                      return Dropdown(
                         hintText: 'Selecione o tipo da receita',
                         items: snapshot.data,
                         onChanged: (DropdownItem item) {
                           controller.typeIncomeId.value = item.id;
-                        });
-                  } else {
-                    return const Text('Carregando');
-                  }
-                },
-              ),
-              const SizedBox(height: 20.0),
-              Input(
-                hintText: 'Informe uma descrição',
-                controller: controller.descriptionController,
-              ),
-              const SizedBox(height: 20.0),
-              Input(
-                hintText: 'Informe o valor',
-                controller: controller.amountController,
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                  CurrencyInputFormatter()
-                ],
-              ),
-              const SizedBox(height: 20.0),
-              Button(
-                text: 'Salvar',
-                onClick: () async => await controller.revenueController(),
-              ),
-            ],
+                        },
+                        validator: controller.validatorTypeIncome,
+                      );
+                    } else {
+                      return const Text('Carregando');
+                    }
+                  },
+                ),
+                const SizedBox(height: 20.0),
+                Input(
+                  hintText: 'Informe uma descrição',
+                  controller: controller.descriptionController,
+                  validator: controller.validatorDescription,
+                ),
+                const SizedBox(height: 20.0),
+                Input(
+                  hintText: 'Informe o valor',
+                  controller: controller.amountController,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    CurrencyInputFormatter()
+                  ],
+                  validator: controller.validatorAmount,
+                ),
+                const SizedBox(height: 20.0),
+                Button(
+                  text: 'Salvar',
+                  onClick: () async => await controller.revenueController(),
+                ),
+              ],
+            ),
           ),
         ),
       ),

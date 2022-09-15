@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Input extends StatelessWidget {
+  final bool isPassword;
+  final TextInputType keyboardType;
   final String? value;
   final bool? disabled;
   final String? hintText;
-  final bool isPassword;
   final TextEditingController? controller;
-  final List<TextInputFormatter>? inputFormatters;
-  final TextInputType keyboardType;
+  final List<TextInputFormatter>? inputFormatters;    
+  final Function? validator;
+  final Function? onChanged;
 
   const Input({
     Key? key,
@@ -18,7 +20,9 @@ class Input extends StatelessWidget {
     this.isPassword = false,
     this.controller,
     this.inputFormatters,
-    this.keyboardType = TextInputType.text,
+    this.keyboardType = TextInputType.text,    
+    this.validator,    
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -34,6 +38,8 @@ class Input extends StatelessWidget {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(4.0)),
         hintText: hintText,
       ),
+      validator: (value) => validator!(),
+      onChanged: (value) => onChanged!(),
     );
   }
 }
