@@ -20,31 +20,6 @@ class RevenueController extends IncomeController implements GetxController {
 
   var year = DateTime.now().year.obs;
 
-  String? validatorDescription() {
-    if (descriptionController.text.isEmpty) {
-      return 'Please enter some description text';
-    }
-    return null;
-  }
-
-  String? validatorAmount() {
-    if (amountController.text.isEmpty) {
-      return 'Please enter some amount';
-    }    
-    int amount = CurrencyInputFormatter.convertToInteger(amountController.value.text);
-    if (amount == 0) {
-      return 'Plese enter amount more than zero';
-    }
-    return null;
-  }
-
-  String? validatorTypeIncome() {
-    if (typeIncomeId.isEmpty) {
-      return 'Plese select at least one type income';
-    }
-    return null;
-  }
-
   Future<bool> revenueController() async {
     if (formKey.currentState!.validate()) {
       int amount =

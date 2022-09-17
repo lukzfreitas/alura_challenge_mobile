@@ -15,22 +15,24 @@ class ExpenseController extends IncomeController implements GetxController {
 
   TypeIncomeProvider typeIncomeProvider;
 
-  ExpenseController(this.expenseProvider, this.typeIncomeProvider);  
+  ExpenseController(this.expenseProvider, this.typeIncomeProvider);
 
   final _categoryController = TextEditingController().obs;
   TextEditingController get categoryController => _categoryController.value;
 
   Future<bool> expenseController() async {
-    int amount =
-        CurrencyInputFormatter.convertToInteger(amountController.value.text);
-    ExpenseModel expenseModel = ExpenseModel(
-      description: descriptionController.value.text,
-      money: Money(amount: amount, currency: 'BRL'),
-      date: DateFormat('yyyy-MM-dd').format(DateTime.now()),
-      category: int.parse(categoryController.value.text), 
-      typeIncome: typeIncomeId.value
-    );
-    return expenseProvider.expenseProvider(expenseModel);
+    if (formKey.currentState!.validate()) {
+      int amount =
+          CurrencyInputFormatter.convertToInteger(amountController.value.text);
+      ExpenseModel expenseModel = ExpenseModel(
+        description: descriptionController.value.text,
+        money: Money(amount: amount, currency: 'BRL'),
+        date: DateFormat('yyyy-MM-dd').format(DateTime.now()),        
+        typeIncome: typeIncomeId.value,
+      );
+      return expenseProvider.expenseProvider(expenseModel);
+    }
+    return false;
   }
 
   Future<List<DropdownItem>> listTypeIncomeController() async {
