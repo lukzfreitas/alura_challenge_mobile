@@ -54,9 +54,8 @@ class RevenueController extends IncomeController implements GetxController {
         money: Money(amount: amount, currency: 'BRL'),
         date: DateFormat('yyyy-MM-dd').format(DateTime.now()),
         typeIncome: typeIncomeId.value,
-      );
-      return true;
-      // return revenueProvider.revenueProvider(revenueModel);
+      );      
+      return revenueProvider.revenueProvider(revenueModel);
     }
     return false;
   }
