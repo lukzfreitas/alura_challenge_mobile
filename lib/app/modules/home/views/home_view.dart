@@ -110,7 +110,7 @@ class HomeView extends GetView<HomeController> {
                               title: 'Tipos de Despesas e Receitas',
                               width: constraints.maxWidth / 3.5,
                               icon: IconsSvg.centerFoco,
-                              onClick: () => {},
+                              onClick: () => Get.toNamed(Routes.typeIncomeList),
                             ),
                           ],
                         ),

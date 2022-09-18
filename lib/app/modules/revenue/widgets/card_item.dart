@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class CardItem extends StatelessWidget {
   final String title;
-  final String subtitle;
-  final String trailing;
+  final String? subtitle;
+  final String? trailing;
 
   const CardItem({
     Key? key,
     required this.title,
-    required this.subtitle,
-    required this.trailing,
+    this.subtitle,
+    this.trailing,
   }) : super(key: key);
 
   @override
@@ -17,8 +17,8 @@ class CardItem extends StatelessWidget {
     return Card(
       child: ListTile(
         title: Text(title),
-        subtitle: Text(subtitle),
-        trailing: Text(trailing),
+        subtitle: Text(subtitle ?? ''),
+        trailing: Text(trailing ?? ''),
       ),
     );
   }

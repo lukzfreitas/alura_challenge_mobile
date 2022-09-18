@@ -9,6 +9,7 @@ abstract class Routes {
   static const expense = _Paths.expense;
   static const expenseList = _Paths.expenseList;
   static const typeIncome = _Paths.typeIncome;
+  static const typeIncomeList = _Paths.typeIncomeList;
 }
 
 abstract class _Paths {
@@ -20,4 +21,5 @@ abstract class _Paths {
   static const expense = '/expense';
   static const expenseList = '/expense-list';
   static const typeIncome = '/type-income';
+  static const typeIncomeList = '/type-income-list';
 }
