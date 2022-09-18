@@ -7,6 +7,7 @@ abstract class Routes {
   static const revenue = _Paths.revenue;
   static const revenueList = _Paths.revenueList;
   static const expense = _Paths.expense;
+  static const expenseList = _Paths.expenseList;
   static const typeIncome = _Paths.typeIncome;
 }
 
@@ -17,5 +18,6 @@ abstract class _Paths {
   static const revenue = '/revenue';
   static const revenueList = '/revenue-list';
   static const expense = '/expense';
+  static const expenseList = '/expense-list';
   static const typeIncome = '/type-income';
 }

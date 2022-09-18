@@ -104,7 +104,7 @@ class HomeView extends GetView<HomeController> {
                               title: 'Últimas Despesas',
                               width: constraints.maxWidth / 3.5,
                               icon: IconsSvg.cached,
-                              onClick: () => Get.toNamed(Routes.expense),
+                              onClick: () => Get.toNamed(Routes.expenseList),
                             ),
                             ActionCard(
                               title: 'Tipos de Despesas e Receitas',

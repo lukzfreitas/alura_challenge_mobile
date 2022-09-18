@@ -1,7 +1,9 @@
 import 'package:alura_challenge_mobile/app/modules/expense/bindings/expense_binding.dart';
+import 'package:alura_challenge_mobile/app/modules/expense/bindings/list_expense_binding.dart';
 import 'package:alura_challenge_mobile/app/modules/expense/views/expense_view.dart';
+import 'package:alura_challenge_mobile/app/modules/expense/views/list_expense_view.dart';
 import 'package:alura_challenge_mobile/app/modules/home/bindings/home_bindings.dart';
-import 'package:alura_challenge_mobile/app/modules/revenue/bindings/revenue_bindings.dart';
+import 'package:alura_challenge_mobile/app/modules/revenue/bindings/revenue_binding.dart';
 import 'package:alura_challenge_mobile/app/modules/revenue/views/list_revenue_view.dart';
 import 'package:alura_challenge_mobile/app/modules/revenue/views/revenue_view.dart';
 import 'package:alura_challenge_mobile/app/modules/type_income/bindings/type_income_binding.dart';
@@ -49,6 +51,11 @@ class AppPages {
       page: () => const ExpenseView(),
       binding: ExpenseBinding(),
     ),
+    GetPage(
+      name: _Paths.expenseList,
+      page: () => const ListExpenseView(),
+      binding: ListExpenseBinding()
+      ),
     GetPage(
       name: _Paths.typeIncome,
       page: () => const TypeIncomeView(),

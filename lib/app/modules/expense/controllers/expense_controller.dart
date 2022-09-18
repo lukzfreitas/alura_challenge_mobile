@@ -17,6 +17,10 @@ class ExpenseController extends IncomeController implements GetxController {
 
   ExpenseController(this.expenseProvider, this.typeIncomeProvider);
 
+  var month = DateTime.now().month.obs;
+
+  var year = DateTime.now().year.obs;
+
   final _categoryController = TextEditingController().obs;
   TextEditingController get categoryController => _categoryController.value;
 
@@ -33,6 +37,10 @@ class ExpenseController extends IncomeController implements GetxController {
       return expenseProvider.expenseProvider(expenseModel);
     }
     return false;
+  }
+
+  Future<List<ExpenseModel>> listExpenseController() async {
+    return expenseProvider.listExpenseProvider(month.value, year.value);
   }
 
   Future<List<DropdownItem>> listTypeIncomeController() async {
