@@ -3,8 +3,7 @@ import 'package:flutter/services.dart';
 
 class Input extends StatelessWidget {
   final bool isPassword;
-  final TextInputType keyboardType;
-  final String? value;
+  final TextInputType keyboardType;  
   final bool? disabled;
   final String? hintText;
   final TextEditingController? controller;
@@ -14,7 +13,6 @@ class Input extends StatelessWidget {
 
   const Input({
     Key? key,
-    this.value = '',
     this.disabled = false,
     this.hintText = '',
     this.isPassword = false,

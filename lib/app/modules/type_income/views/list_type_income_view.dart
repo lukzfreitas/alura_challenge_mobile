@@ -1,6 +1,7 @@
 import 'package:alura_challenge_mobile/app/data/models/type_income_model.dart';
 import 'package:alura_challenge_mobile/app/modules/revenue/widgets/card_item.dart';
 import 'package:alura_challenge_mobile/app/modules/type_income/controllers/type_income_controller.dart';
+import 'package:alura_challenge_mobile/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +28,10 @@ class ListTypeIncomeView extends GetView<TypeIncomeController> {
                           return CardItem(
                             title: snapshot.data![index].description,
                             subtitle: snapshot.data![index].code.toString(),
+                            onClick: () => Get.offNamed(
+                              Routes.typeIncome,
+                              parameters: snapshot.data![index].toMapString(),
+                            ),
                           );
                         },
                       ),

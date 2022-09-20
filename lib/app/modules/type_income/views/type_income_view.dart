@@ -1,3 +1,4 @@
+import 'package:alura_challenge_mobile/app/data/models/type_income_model.dart';
 import 'package:alura_challenge_mobile/app/global_widgets/button.dart';
 import 'package:alura_challenge_mobile/app/global_widgets/input.dart';
 import 'package:alura_challenge_mobile/app/modules/type_income/controllers/type_income_controller.dart';
@@ -5,7 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class TypeIncomeView extends GetView<TypeIncomeController> {
-  const TypeIncomeView({Key? key}) : super(key: key);
+
+  final TypeIncome? typeIncome;
+
+  const TypeIncomeView({Key? key, this.typeIncome}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +26,12 @@ class TypeIncomeView extends GetView<TypeIncomeController> {
               Input(
                 hintText: 'Informe o código',
                 controller: controller.codeController,
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.number,                
               ),
               const SizedBox(height: 20.0),
               Input(
                 hintText: 'Informe uma descrição',
-                controller: controller.descriptionController,
+                controller: controller.descriptionController,                
               ),
               const SizedBox(height: 20.0),
               Button(

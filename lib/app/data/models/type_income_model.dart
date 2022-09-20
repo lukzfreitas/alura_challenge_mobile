@@ -30,6 +30,13 @@ class TypeIncome {
     };
   }
 
+  Map<String, String> toMapString() {
+    return {
+      'description': description,
+      'code': code.toString(),
+    };
+  }
+
   factory TypeIncome.fromMap(Map<String, dynamic> map) {
     return TypeIncome(
       id: map['_id'] ?? '',

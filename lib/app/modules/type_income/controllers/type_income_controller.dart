@@ -19,6 +19,13 @@ class TypeIncomeController extends GetxController {
     return typeIncomeProvider.listTypeIncomeProvider();
   }
 
+  @override
+  onInit() {
+    codeController.text = Get.parameters['code'].toString();
+    descriptionController.text = Get.parameters['description'].toString();
+    super.onInit();
+  }
+
   Future<bool> createTypeIncomeController() async {
     return typeIncomeProvider.createTypeIncomeProvider(
       TypeIncome(
