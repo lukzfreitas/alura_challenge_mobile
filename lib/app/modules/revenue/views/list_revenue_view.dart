@@ -3,6 +3,7 @@ import 'package:alura_challenge_mobile/app/core/utils/date_format.dart';
 import 'package:alura_challenge_mobile/app/data/models/revenue_model.dart';
 import 'package:alura_challenge_mobile/app/modules/revenue/controllers/revenue_controller.dart';
 import 'package:alura_challenge_mobile/app/modules/revenue/widgets/card_item.dart';
+import 'package:alura_challenge_mobile/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -34,6 +35,10 @@ class ListRevenueView extends GetView<RevenueController> {
                               amount: snapshot.data![index].money.amount,
                               locale: 'en_US',
                               symbol: '\$',
+                            ),
+                            onClick: () => Get.offNamed(
+                              Routes.revenue,
+                              parameters: snapshot.data![index].toMapString(),
                             ),
                           );
                         },

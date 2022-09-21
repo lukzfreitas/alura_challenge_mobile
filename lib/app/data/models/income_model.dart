@@ -2,16 +2,18 @@ import 'dart:convert';
 
 import 'package:alura_challenge_mobile/app/data/models/money_model.dart';
 
-class IncomeModel {
+class IncomeModel {  
   String description;
   Money money;
   String date;
   String? typeIncome;
+  String? id;
   IncomeModel({
     required this.description,
     required this.money,
     required this.date,
-    this.typeIncome
+    this.typeIncome,
+    this.id
   });
 
   IncomeModel copyWith({
@@ -34,6 +36,17 @@ class IncomeModel {
       'money': money.toMap(),
       'date': date,
       'typeIncome': typeIncome,
+    };
+  }
+
+  Map<String, String> toMapString() {
+    return {
+      '_id': id ?? '',
+      'description': description,
+      'amount': money.amount.toString(),
+      'currency': money.currency,
+      'date': date,
+      'typeIncome': typeIncome.toString(),
     };
   }
 
