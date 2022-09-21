@@ -18,6 +18,16 @@ class TypeIncomeProvider extends GetConnect {
     return response.isOk;
   }
 
+  Future<bool> updateTypeIncomeProvider(TypeIncome typeIncome) async {
+    String token = await prefs.getToken();
+    Response response = await put(
+      '$baseurl/${typeIncome.id}',
+      typeIncome.toJson(),
+      headers: {'Authorization': "Bearer $token"},
+    );
+    return response.isOk;
+  }
+
   Future<List<TypeIncome>> listTypeIncomeProvider() async {
     String token = await prefs.getToken();
     Response response = await get(

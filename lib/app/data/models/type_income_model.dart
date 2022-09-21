@@ -32,6 +32,7 @@ class TypeIncome {
 
   Map<String, String> toMapString() {
     return {
+      '_id': id ?? '',
       'description': description,
       'code': code.toString(),
     };

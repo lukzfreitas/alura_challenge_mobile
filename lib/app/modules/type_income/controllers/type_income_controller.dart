@@ -8,6 +8,8 @@ class TypeIncomeController extends GetxController {
 
   TypeIncomeController(this.typeIncomeProvider);
 
+  var id = ''.obs;
+
   final _descriptionController = TextEditingController().obs;
   TextEditingController get descriptionController =>
       _descriptionController.value;
@@ -21,14 +23,24 @@ class TypeIncomeController extends GetxController {
 
   @override
   onInit() {
+    id.value = Get.parameters['_id'].toString();
     codeController.text = Get.parameters['code'].toString();
     descriptionController.text = Get.parameters['description'].toString();
     super.onInit();
   }
 
   Future<bool> createTypeIncomeController() async {
-    return typeIncomeProvider.createTypeIncomeProvider(
+    if (id.value == '') {
+      return typeIncomeProvider.createTypeIncomeProvider(
+        TypeIncome(
+          description: descriptionController.value.text,
+          code: int.parse(codeController.value.text),
+        ),
+      );
+    }
+    return typeIncomeProvider.updateTypeIncomeProvider(
       TypeIncome(
+        id: id.value,
         description: descriptionController.value.text,
         code: int.parse(codeController.value.text),
       ),
