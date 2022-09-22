@@ -2,8 +2,9 @@ import 'package:alura_challenge_mobile/app/core/utils/currency_format.dart';
 import 'package:alura_challenge_mobile/app/core/utils/date_format.dart';
 import 'package:alura_challenge_mobile/app/data/models/revenue_model.dart';
 import 'package:alura_challenge_mobile/app/modules/revenue/controllers/revenue_controller.dart';
+import 'package:alura_challenge_mobile/app/modules/revenue/views/revenue_view.dart';
 import 'package:alura_challenge_mobile/app/modules/revenue/widgets/card_item.dart';
-import 'package:alura_challenge_mobile/app/routes/app_pages.dart';
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,22 +27,28 @@ class ListRevenueView extends GetView<RevenueController> {
                       padding: const EdgeInsets.all(8.0),
                       child: ListView.builder(
                         itemCount: snapshot.data!.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return CardItem(
-                            title: snapshot.data![index].description,
-                            subtitle: DatetimeFormat.dateFormat(
-                                date: snapshot.data![index].date),
-                            trailing: CurrencyFormat.currencyFormat(
-                              amount: snapshot.data![index].money.amount,
-                              locale: 'en_US',
-                              symbol: '\$',
+                        itemBuilder: (BuildContext context, int index) =>
+                          OpenContainer(                            
+                            transitionDuration: const Duration(seconds: 1),
+                            closedElevation: 0,                            
+                            closedColor: Colors.transparent,
+                            closedBuilder: (context, action) => CardItem(                              
+                              title: snapshot.data![index].description,
+                              subtitle: DatetimeFormat.dateFormat(
+                                  date: snapshot.data![index].date),
+                              trailing: CurrencyFormat.currencyFormat(
+                                amount: snapshot.data![index].money.amount,
+                                locale: 'en_US',
+                                symbol: '\$',
+                              ),                              
+                              onClick: () {
+                                controller.openIncome(snapshot.data![index]);
+                                action();
+                              },
                             ),
-                            onClick: () => Get.offNamed(
-                              Routes.revenue,
-                              parameters: snapshot.data![index].toMapString(),
-                            ),
-                          );
-                        },
+                            openBuilder: (context, action) =>
+                                const RevenueView(),
+                          ),                                                  
                       ),
                     )
                   : const Center(

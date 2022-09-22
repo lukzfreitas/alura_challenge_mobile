@@ -38,6 +38,7 @@ dependencies:
   jwt_decoder:
   flutter_svg:
   intl:
+  animations:
 
 dev_dependencies:
   flutter_test:

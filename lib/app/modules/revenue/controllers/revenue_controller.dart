@@ -20,14 +20,6 @@ class RevenueController extends IncomeController implements GetxController {
 
   var year = DateTime.now().year.obs;
 
-  @override
-  onInit() {
-    descriptionController.text = Get.parameters['description'].toString();
-    amountController.text = Get.parameters['amount'].toString();
-    typeIncomeId.value = Get.parameters['typeIncome'].toString();
-    super.onInit();
-  }
-
   Future<bool> revenueController() async {
     if (formKey.currentState!.validate()) {
       int amount =
@@ -44,7 +36,7 @@ class RevenueController extends IncomeController implements GetxController {
   }
 
   Future<List<RevenueModel>> listRevenueController() async {
-    return revenueProvider.listRevenueProvider(month.value, year.value);
+    return await revenueProvider.listRevenueProvider(month.value, year.value);    
   }
 
   Future<List<DropdownItem>> listTypeIncomeController() async {

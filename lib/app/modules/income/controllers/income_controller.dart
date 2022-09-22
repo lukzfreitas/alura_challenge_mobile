@@ -1,4 +1,6 @@
+import 'package:alura_challenge_mobile/app/core/utils/currency_format.dart';
 import 'package:alura_challenge_mobile/app/core/utils/currency_input_formatter.dart';
+import 'package:alura_challenge_mobile/app/data/models/income_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -39,5 +41,11 @@ abstract class IncomeController extends GetxController {
       return 'Plese select at least one type income';
     }
     return null;
+  }
+
+  openIncome(IncomeModel income) {
+    descriptionController.text = income.description;
+    amountController.text = CurrencyFormat.currencyFormat(amount: income.money.amount, symbol: 'R\$ ');
+    typeIncomeId.value = income.typeIncome.toString(); 
   }
 }
